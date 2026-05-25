@@ -337,8 +337,22 @@ console.log("Row count before add:", worksheet.rowCount);
       // ===============================
       // ADD NEW ROW
       // ===============================
-     worksheet.addRow([
-  new Date().toLocaleString(),
+     const now = new Date();
+
+const formattedTimestamp =
+  new Date().toLocaleString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false
+  });
+
+worksheet.addRow([
+  formattedTimestamp,
   data.district || "",
   data.blockName || "",
   data.gpName || "",
